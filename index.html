@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#18213d" />
+    <meta
+      name="description"
+      content="Skyhop — a colorful browser platformer about leaping through Mosslight Valley."
+    />
+    <title>Skyhop — Mosslight Valley</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="game-shell" aria-label="Skyhop platform game">
+      <canvas id="game" aria-label="Platform game canvas"></canvas>
+
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Skyhop home">
+          <span class="brand-mark" aria-hidden="true">
+            <span></span><span></span>
+          </span>
+          <span>SKYHOP</span>
+        </a>
+
+        <div class="level-label" aria-live="polite">
+          <span class="eyebrow">TRAIL 01</span>
+          <strong>Mosslight Valley</strong>
+        </div>
+
+        <button class="icon-button" id="pauseButton" aria-label="Pause game" title="Pause (P)">
+          <span class="pause-icon" aria-hidden="true"></span>
+        </button>
+      </header>
+
+      <section class="hud" aria-label="Game status">
+        <div class="hud-card hearts-card">
+          <span class="hud-label">SPARK</span>
+          <div class="hearts" id="hearts" aria-label="3 lives"></div>
+        </div>
+
+        <div class="progress-card">
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-runner" id="progressRunner" aria-hidden="true"></div>
+          </div>
+          <div class="progress-labels">
+            <span>START</span>
+            <span>GATE</span>
+          </div>
+        </div>
+
+        <div class="hud-card coin-card">
+          <span class="coin-icon" aria-hidden="true"></span>
+          <span class="coin-count" id="coinCount">00</span>
+          <span class="hud-label">GLOW</span>
+        </div>
+      </section>
+
+      <section class="game-card is-visible" id="startCard" aria-labelledby="startTitle">
+        <div class="card-kicker"><span></span> TRAIL 01 <span></span></div>
+        <h1 id="startTitle">Mosslight<br /><em>Valley</em></h1>
+        <p>Dash through the valley, bounce on critters, and reach the lantern gate.</p>
+        <button class="primary-button" id="startButton">
+          <span>START ADVENTURE</span>
+          <span class="button-arrow" aria-hidden="true">→</span>
+        </button>
+        <div class="control-hint">
+          <span><kbd>A</kbd><kbd>D</kbd> Move</span>
+          <span><kbd>W</kbd> Jump</span>
+          <span><kbd>P</kbd> Pause</span>
+        </div>
+      </section>
+
+      <section class="game-card result-card" id="resultCard" aria-live="polite">
+        <div class="result-icon" id="resultIcon" aria-hidden="true">✦</div>
+        <div class="card-kicker" id="resultKicker">TRAIL COMPLETE</div>
+        <h2 id="resultTitle">Valley<br /><em>crossed!</em></h2>
+        <p id="resultText">A bright little adventure.</p>
+        <div class="score-grid">
+          <div><strong id="resultCoins">00</strong><span>GLOW</span></div>
+          <div><strong id="resultTime">0:00</strong><span>TIME</span></div>
+        </div>
+        <button class="primary-button" id="restartButton">
+          <span>RUN IT AGAIN</span>
+          <span class="button-arrow" aria-hidden="true">↻</span>
+        </button>
+      </section>
+
+      <div class="toast" id="toast" role="status" aria-live="polite">
+        <span class="toast-icon">◆</span>
+        <span id="toastText">Checkpoint lit!</span>
+      </div>
+
+      <div class="touch-controls" aria-label="Touch game controls">
+        <div class="touch-move">
+          <button class="touch-button" data-control="left" aria-label="Move left">←</button>
+          <button class="touch-button" data-control="right" aria-label="Move right">→</button>
+        </div>
+        <button class="touch-button jump-button" data-control="jump" aria-label="Jump">↑</button>
+      </div>
+
+      <footer class="game-footer">
+        <span>Reach the lantern gate</span>
+        <span class="footer-dot"></span>
+        <span>Collect the valley glow</span>
+      </footer>
+    </main>
+
+    <script src="./game.js"></script>
+  </body>
+</html>
